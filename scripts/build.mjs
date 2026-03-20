@@ -13,6 +13,7 @@ const fontsDir = path.join(assetsDir, "fonts");
 const tmpDir = path.join(rootDir, "tmp");
 
 const markdownPath = path.join(rootDir, "resume.md");
+const markdownTemplatePath = path.join(rootDir, "resume.md.template");
 const stylesPath = path.join(rootDir, "src", "styles.css");
 const sourceFontsDir = path.join(rootDir, "src", "assets", "fonts");
 
@@ -119,6 +120,22 @@ async function ensureDirectories() {
   await fs.mkdir(assetsDir, { recursive: true });
   await fs.mkdir(fontsDir, { recursive: true });
   await fs.mkdir(tmpDir, { recursive: true });
+}
+
+async function readResumeMarkdown() {
+  try {
+    return await fs.readFile(markdownPath, "utf8");
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") {
+      const templateName = path.basename(markdownTemplatePath);
+      const resumeName = path.basename(markdownPath);
+      throw new Error(
+        `Missing ${resumeName}. Copy ${templateName} to ${resumeName} first, then run the build again.`
+      );
+    }
+
+    throw error;
+  }
 }
 
 async function copyFonts() {
@@ -339,7 +356,7 @@ async function main() {
   await copyFonts();
 
   const [markdownSource, stylesheet] = await Promise.all([
-    fs.readFile(markdownPath, "utf8"),
+    readResumeMarkdown(),
     fs.readFile(stylesPath, "utf8")
   ]);
 

@@ -39,7 +39,7 @@ extracurricular:
 
 ## Profile
 
-Use this repository as a single-source resume website. Edit this root markdown file, then run `npm run build` to regenerate both the website and the PDF.
+Use this repository as a single-source resume website. Edit this markdown file after copying it to `resume.md`, then run `npm run build` to regenerate both the website and the PDF.
 
 ## Experience
 

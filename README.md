@@ -1,16 +1,19 @@
 # Markdown Resume Template
 
-Edit [`resume.md`](/Users/hjort/code/CV/resume.md) and rebuild the site.
+Start by copying [`resume.md.template`](/Users/hjort/code/CV/resume.md.template) to `resume.md`, then build the site from your local `resume.md`.
 
 ## Commands
 
 ```bash
 npm install
+cp resume.md.template resume.md
 npm run build
 npm run preview
 ```
 
-`npm run preview` now watches [`resume.md`](/Users/hjort/code/CV/resume.md), `src/`, and `scripts/`, rebuilds on change, and reloads the browser from `dist/`.
+`npm run build` and `npm run preview` both read from your local `resume.md`.
+
+`npm run preview` watches `resume.md`, `src/`, and `scripts/`, rebuilds on change, and reloads the browser from `dist/`.
 
 If you want a plain static server without rebuild/reload behavior, use:
 
@@ -25,6 +28,12 @@ The build writes:
 - `dist/resume.pdf`
 
 PDF generation uses Google Chrome in headless mode. If Chrome is installed somewhere else, set `CHROME_PATH` before running `npm run build`.
+
+If `resume.md` does not exist yet, copy the starter file first:
+
+```bash
+cp resume.md.template resume.md
+```
 
 ## Third-Party Assets
 
