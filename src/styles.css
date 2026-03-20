@@ -1,0 +1,474 @@
+@font-face {
+  font-family: "TeX Gyre Heros";
+  src: url("./assets/fonts/texgyreheros-regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "TeX Gyre Heros";
+  src: url("./assets/fonts/texgyreheros-bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Lato Light";
+  src: url("./assets/fonts/Lato-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+:root {
+  --bg: #efe6d8;
+  --bg-accent: #d4e7ec;
+  --panel: rgba(255, 251, 245, 0.9);
+  --panel-strong: #fffaf2;
+  --ink: #162125;
+  --muted: #5b686a;
+  --accent: #0f78a7;
+  --accent-strong: #0a5578;
+  --line: rgba(22, 33, 37, 0.12);
+  --shadow: 0 20px 60px rgba(22, 33, 37, 0.12);
+  --radius-xl: 30px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Lato Light", "Avenir Next", "Helvetica Neue", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(15, 120, 167, 0.16), transparent 30%),
+    radial-gradient(circle at top right, rgba(212, 231, 236, 0.9), transparent 28%),
+    linear-gradient(180deg, #f7f1e6 0%, var(--bg) 50%, #f4ede3 100%);
+}
+
+a {
+  color: inherit;
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.hero-copy {
+  max-width: 60ch;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.93;
+}
+
+.hero-title {
+  margin: 18px 0 10px;
+  font-size: 1.2rem;
+  color: var(--accent-strong);
+}
+
+.hero-summary {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 230px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 120, 167, 0.18);
+  background: rgba(15, 120, 167, 0.08);
+  color: var(--accent-strong);
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background: rgba(15, 120, 167, 0.14);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 310px) 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+.sidebar,
+.content {
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+}
+
+.sidebar-group + .sidebar-group {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.sidebar-title {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-list,
+.detail-list,
+.jump-links {
+  display: grid;
+  gap: 10px;
+}
+
+.contact-list a,
+.jump-links a {
+  text-decoration: none;
+}
+
+.contact-item,
+.detail-item {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.contact-label,
+.detail-label {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--ink);
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  padding: 8px 12px;
+  border: 1px solid rgba(15, 120, 167, 0.18);
+  border-radius: 999px;
+  background: rgba(15, 120, 167, 0.08);
+  color: var(--accent-strong);
+  font-size: 0.92rem;
+  line-height: 1.2;
+}
+
+.jump-links a {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(22, 33, 37, 0.08);
+  color: var(--muted);
+}
+
+.jump-links a:hover {
+  color: var(--accent-strong);
+}
+
+.resume-section + .resume-section {
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.section-heading {
+  margin: 0 0 18px;
+}
+
+.section-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.section-toggle:hover {
+  color: var(--accent-strong);
+}
+
+.section-toggle span:first-child {
+  color: var(--accent);
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-indicator {
+  position: relative;
+  flex: 0 0 auto;
+  width: 1.45rem;
+  height: 1.45rem;
+  border: 1px solid rgba(15, 120, 167, 0.22);
+  border-radius: 999px;
+  background: rgba(15, 120, 167, 0.08);
+}
+
+.section-indicator::before,
+.section-indicator::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.section-indicator::before {
+  width: 0.7rem;
+  height: 1.5px;
+}
+
+.section-indicator::after {
+  width: 1.5px;
+  height: 0.7rem;
+}
+
+.section-toggle[aria-expanded="true"] .section-indicator::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) scaleY(0.2);
+}
+
+.section-body[hidden] {
+  display: none;
+}
+
+.resume-section.is-collapsed {
+  padding-bottom: 0;
+}
+
+.resume-section h3,
+.resume-section h4 {
+  margin: 22px 0 6px;
+  font-family: "TeX Gyre Heros", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.resume-section h3 {
+  font-size: 1.34rem;
+}
+
+.resume-section h4 {
+  font-size: 1.08rem;
+}
+
+.resume-section p,
+.resume-section li {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.resume-section p {
+  margin: 0 0 10px;
+}
+
+.resume-section h3 + p,
+.resume-section h4 + p {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.resume-section ul {
+  margin: 0 0 16px;
+  padding-left: 1.3rem;
+}
+
+.resume-section li + li {
+  margin-top: 6px;
+}
+
+.resume-section strong {
+  font-weight: 700;
+}
+
+.resume-section a {
+  text-decoration-color: rgba(15, 120, 167, 0.3);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.footer-note {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding: 18px 14px 40px;
+  }
+
+  .hero,
+  .layout {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+    min-width: 0;
+  }
+
+  .button {
+    min-width: 0;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 14mm;
+}
+
+@media print {
+  body {
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: none;
+    padding: 0;
+  }
+
+  .panel {
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .hero {
+    padding: 0 0 8mm;
+    border-bottom: 1px solid rgba(22, 33, 37, 0.14);
+  }
+
+  .hero-actions,
+  .jump-links,
+  .footer-note,
+  .section-indicator {
+    display: none;
+  }
+
+  .layout {
+    grid-template-columns: 30% 1fr;
+    gap: 10mm;
+    margin-top: 8mm;
+  }
+
+  .sidebar,
+  .content {
+    padding: 0;
+  }
+
+  .sidebar-group {
+    break-inside: avoid;
+  }
+
+  .resume-section + .resume-section {
+    margin-top: 8mm;
+    padding-top: 7mm;
+  }
+
+  .resume-section h2,
+  .section-heading,
+  .resume-section h3,
+  .resume-section h4,
+  .resume-section h3 + p,
+  .resume-section h4 + p {
+    break-after: avoid;
+  }
+
+  .section-toggle {
+    cursor: default;
+  }
+
+  .section-body[hidden] {
+    display: block !important;
+  }
+}

@@ -1,0 +1,9 @@
+# Your resume
+resume.md
+
+.DS_Store
+node_modules/
+dist/
+tmp/
+ignored/
+
