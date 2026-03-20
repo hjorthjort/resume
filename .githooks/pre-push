@@ -3,6 +3,29 @@ set -eu
 
 zero_sha="0000000000000000000000000000000000000000"
 
+would_expose_resume() {
+  commit="$1"
+
+  git diff-tree --no-commit-id --name-status -r "${commit}" -- |
+    awk '
+      {
+        status = $1
+        sub(/[0-9]+$/, "", status)
+
+        if ((status == "A" || status == "M" || status == "T") && $2 == "resume.md") {
+          found = 1
+        }
+
+        if ((status == "C" || status == "R") && $3 == "resume.md") {
+          found = 1
+        }
+      }
+      END {
+        exit(found ? 0 : 1)
+      }
+    '
+}
+
 while read local_ref local_sha remote_ref remote_sha; do
   [ "${local_sha}" = "${zero_sha}" ] && continue
 
@@ -13,7 +36,7 @@ while read local_ref local_sha remote_ref remote_sha; do
   fi
 
   for commit in ${commits}; do
-    if git diff-tree --no-commit-id --name-only -r "${commit}" -- | grep -qx 'resume.md'; then
+    if would_expose_resume "${commit}"; then
       echo "Blocked: push contains changes to resume.md in commit ${commit}."
       echo "Keep personal resume data in your ignored local resume.md and commit only template/repo changes."
       exit 1
