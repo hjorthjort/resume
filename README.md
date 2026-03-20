@@ -17,3 +17,7 @@ The build writes:
 - `dist/resume.pdf`
 
 PDF generation uses Google Chrome in headless mode. If Chrome is installed somewhere else, set `CHROME_PATH` before running `npm run build`.
+
+## Third-Party Assets
+
+This template self-hosts a small set of open-source fonts. Their license texts are included in [`LICENSES/`](/Users/hjort/code/CV/LICENSES) and mapped to the tracked files in [`THIRD_PARTY_NOTICES.md`](/Users/hjort/code/CV/THIRD_PARTY_NOTICES.md).
