@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+if git diff --cached --name-only --diff-filter=ACMR -- | grep -qx 'resume.md'; then
+  echo "Blocked: resume.md is local-only and must not be committed."
+  echo "If you need starter content, edit resume.md.template and keep personal data in your ignored local resume.md."
+  exit 1
+fi
