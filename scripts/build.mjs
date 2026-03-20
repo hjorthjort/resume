@@ -31,8 +31,16 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
+function stringifyValue(value) {
+  if (value == null) {
+    return "";
+  }
+
+  return String(value);
+}
+
 function slugify(value) {
-  return String(value)
+  return stringifyValue(value)
     .toLowerCase()
     .replaceAll(/[^a-z0-9]+/g, "-")
     .replaceAll(/^-+|-+$/g, "");
@@ -55,12 +63,17 @@ function renderLinks(links) {
 
   return links
     .map(
-      (link) => `
-        <a class="contact-item" href="${escapeHtml(link.href)}" target="_blank" rel="noreferrer">
-          <span class="contact-label">${escapeHtml(link.label)}</span>
-          <span>${escapeHtml(link.href.replace(/^https?:\/\//, ""))}</span>
+      (link) => {
+        const href = stringifyValue(link?.href);
+        const label = stringifyValue(link?.label);
+
+        return `
+        <a class="contact-item" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">
+          <span class="contact-label">${escapeHtml(label)}</span>
+          <span>${escapeHtml(href.replace(/^https?:\/\//, ""))}</span>
         </a>
-      `
+      `;
+      }
     )
     .join("");
 }
@@ -125,24 +138,30 @@ async function copyFonts() {
 }
 
 function buildHtml(data, sections, stylesheet) {
+  const location = stringifyValue(data.location);
+  const phone = stringifyValue(data.phone);
+  const summary = stringifyValue(data.summary);
+  const name = stringifyValue(data.name);
+  const title = stringifyValue(data.title);
+
   const contactItems = [
     `
       <div class="contact-item">
         <span class="contact-label">Location</span>
-        <span>${escapeHtml(data.location ?? "")}</span>
+        <span>${escapeHtml(location)}</span>
       </div>
     `,
     `
       <div class="contact-item">
         <span class="contact-label">Phone</span>
-        <a href="tel:${escapeHtml((data.phone ?? "").replaceAll(" ", ""))}">${escapeHtml(data.phone ?? "")}</a>
+        <a href="tel:${escapeHtml(phone.replaceAll(" ", ""))}">${escapeHtml(phone)}</a>
       </div>
     `,
     ...(data.emails ?? []).map(
       (email) => `
         <a class="contact-item" href="mailto:${escapeHtml(email)}">
           <span class="contact-label">Email</span>
-          <span>${escapeHtml(email)}</span>
+          <span>${escapeHtml(stringifyValue(email))}</span>
         </a>
       `
     )
@@ -182,8 +201,8 @@ function buildHtml(data, sections, stylesheet) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="${escapeHtml(data.summary ?? "")}" />
-    <title>${escapeHtml(data.name)} - Resume</title>
+    <meta name="description" content="${escapeHtml(summary)}" />
+    <title>${escapeHtml(name)} - Resume</title>
     <style>
 ${stylesheet}
     </style>
@@ -193,9 +212,9 @@ ${stylesheet}
       <header class="hero panel">
         <div class="hero-copy">
           <p class="eyebrow">Resume / CV</p>
-          <h1>${escapeHtml(data.name)}</h1>
-          <p class="hero-title">${escapeHtml(data.title)}</p>
-          <p class="hero-summary">${escapeHtml(data.summary ?? "")}</p>
+          <h1>${escapeHtml(name)}</h1>
+          <p class="hero-title">${escapeHtml(title)}</p>
+          <p class="hero-summary">${escapeHtml(summary)}</p>
         </div>
         <div class="hero-actions">
           <a class="button" href="./resume.pdf" download>Download PDF</a>
