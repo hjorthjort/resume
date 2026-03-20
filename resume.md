@@ -1,0 +1,99 @@
+---
+name: Your Name
+title: Professional Headline
+location: City, Country
+phone: +00 00 000 00 00
+emails:
+  - you@example.com
+links:
+  - label: Portfolio
+    href: https://example.com
+  - label: GitHub
+    href: https://github.com/your-handle
+summary: >-
+  Write a short summary that explains what you do, the kind of problems you
+  like solving, and the experience or perspective you bring.
+skills:
+  - Leadership
+  - Product Strategy
+  - Systems Design
+  - Research
+  - Writing
+  - Public Speaking
+  - Python
+  - TypeScript
+interests:
+  - Open Source
+  - Design
+  - Teaching
+languages:
+  - name: English
+    level: Fluent
+  - name: Another Language
+    level: Working proficiency
+awards:
+  - Add an award or remove this section
+extracurricular:
+  - Add a community role or remove this section
+---
+
+## Profile
+
+Use this repository as a single-source resume website. Edit this root markdown file, then run `npm run build` to regenerate both the website and the PDF.
+
+## Experience
+
+### Company Name
+*2023 - Present · Role title*
+
+- Describe your scope, the kinds of problems you worked on, and the outcomes you drove.
+- Prefer concrete results over generic responsibility lists.
+
+### Previous Company
+*2020 - 2023 · Role title*
+
+- Add project highlights, ownership areas, and measurable impact.
+- Include technologies, product areas, or teams only when they add signal.
+
+## Projects
+
+### Project Name
+
+- Explain what it is, why it matters, and what your contribution was.
+- Link to a demo, repository, paper, or write-up if relevant.
+
+### Another Project
+
+- Use this section for open-source work, consulting, research, or side projects.
+
+## Education
+
+### Institution
+*Degree or program · Years*
+
+- Add thesis title, specialization, or notable coursework if useful.
+
+### Additional Training
+*Course, certificate, exchange term, or apprenticeship*
+
+- Keep only the entries that add signal for the audience you care about.
+
+## Writing And Talks
+
+### Publications, articles, or papers
+
+- Add titles, venues, co-authors, and years.
+
+### Talks, workshops, or teaching
+
+- Add conference talks, guest lectures, podcasts, or internal training sessions.
+
+## Awards And Community
+
+### Awards
+
+- Add honors, grants, scholarships, or recognition.
+
+### Community
+
+- Add mentoring, volunteering, organizing, review work, or board roles.
