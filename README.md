@@ -10,6 +10,14 @@ npm run build
 npm run preview
 ```
 
+`npm run preview` now watches [`resume.md`](/Users/hjort/code/CV/resume.md), `src/`, and `scripts/`, rebuilds on change, and reloads the browser from `dist/`.
+
+If you want a plain static server without rebuild/reload behavior, use:
+
+```bash
+npm run serve
+```
+
 The build writes:
 
 - `dist/index.html`

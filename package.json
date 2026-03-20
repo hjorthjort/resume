@@ -5,11 +5,16 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "preview": "python3 -m http.server 4173 -d dist"
+    "serve": "python3 -m http.server 4173 -d dist",
+    "preview": "node scripts/dev.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
     "puppeteer-core": "^24.6.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "chokidar": "^4.0.3"
   }
 }
