@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "setup": "git config core.hooksPath .githooks",
     "build": "node scripts/build.mjs",
     "serve": "python3 -m http.server 4173 -d dist",
     "preview": "node scripts/dev.mjs"

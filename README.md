@@ -6,7 +6,6 @@ Start by copying [`resume.md.template`](/Users/hjort/code/CV/resume.md.template)
 
 ```bash
 npm install
-npm run setup
 cp resume.md.template resume.md
 npm run build
 npm run preview
@@ -15,8 +14,6 @@ npm run preview
 `npm run build` and `npm run preview` both read from your local `resume.md`.
 
 `resume.md` is intentionally ignored so you can keep personal data locally.
-
-`npm run setup` configures repo-local Git hooks that block commits and pushes if `resume.md` is ever staged or included.
 
 `npm run preview` watches `resume.md`, `src/`, and `scripts/`, rebuilds on change, and reloads the browser from `dist/`.
 
