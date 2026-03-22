@@ -402,7 +402,7 @@ a {
 
 @page {
   size: A4;
-  margin: 4mm;
+  margin: 9mm;
 }
 
 @media print {
@@ -411,8 +411,8 @@ a {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     font-family: "TeX Gyre Heros", "Helvetica Neue", sans-serif;
-    font-size: 8pt;
-    line-height: 1.2;
+    font-size: 9pt;
+    line-height: 1.3;
   }
 
   .page {
@@ -430,7 +430,7 @@ a {
 
   .hero {
     gap: 5mm;
-    padding: 0 0 2.6mm;
+    padding: 0 0 4mm;
     border-bottom: 1px solid rgba(22, 33, 37, 0.14);
   }
 
@@ -450,18 +450,18 @@ a {
   }
 
   .hero h1 {
-    font-size: 23pt;
+    font-size: 26pt;
     line-height: 0.92;
   }
 
   .hero-title {
-    margin: 1mm 0 0.8mm;
-    font-size: 9.2pt;
+    margin: 1.5mm 0 1mm;
+    font-size: 10.5pt;
   }
 
   .hero-summary {
-    font-size: 7.5pt;
-    line-height: 1.18;
+    font-size: 8.6pt;
+    line-height: 1.3;
   }
 
   .layout {
@@ -476,18 +476,12 @@ a {
 
   .sidebar {
     display: grid;
-    grid-template-columns: 1.25fr 1.4fr 1fr;
-    gap: 2mm 4mm;
-    margin-bottom: 2.6mm;
-    padding-bottom: 2.6mm;
+    grid-template-columns: 1.35fr 1.6fr 1.1fr;
+    gap: 3mm 5mm;
+    margin-bottom: 4mm;
+    padding-bottom: 4mm;
     border-bottom: 1px solid rgba(22, 33, 37, 0.14);
     position: static;
-  }
-
-  .sidebar-group-interests,
-  .sidebar-group-awards,
-  .sidebar-group-service {
-    display: none;
   }
 
   .sidebar-group {
@@ -501,45 +495,47 @@ a {
   }
 
   .sidebar-title {
-    margin: 0 0 0.8mm;
-    font-size: 6.1pt;
+    margin: 0 0 1.2mm;
+    font-size: 6.9pt;
     letter-spacing: 0.14em;
   }
 
   .contact-list,
   .detail-list {
-    gap: 0.6mm;
+    gap: 1mm;
   }
 
   .contact-item,
   .detail-item {
-    font-size: 7.1pt;
-    line-height: 1.08;
+    font-size: 8pt;
+    line-height: 1.18;
   }
 
   .contact-label,
   .detail-label {
-    margin-bottom: 0.2mm;
-    font-size: 5.8pt;
+    margin-bottom: 0.4mm;
+    font-size: 6.5pt;
   }
 
   .chips {
-    gap: 0.7mm 1mm;
+    gap: 1mm 1.4mm;
   }
 
   .chip {
-    padding: 0.55mm 1.5mm;
-    font-size: 6.7pt;
+    padding: 0.7mm 1.9mm;
+    font-size: 7.5pt;
     line-height: 1.08;
   }
 
   .content {
-    column-count: 1;
+    column-count: 2;
+    column-gap: 7mm;
+    column-fill: auto;
   }
 
   .resume-section + .resume-section {
-    margin-top: 1.8mm;
-    padding-top: 1.5mm;
+    margin-top: 3.2mm;
+    padding-top: 2.4mm;
   }
 
   .resume-section {
@@ -547,7 +543,7 @@ a {
   }
 
   .section-heading {
-    margin: 0 0 0.8mm;
+    margin: 0 0 1.5mm;
   }
 
   .resume-section h2,
@@ -564,46 +560,46 @@ a {
   }
 
   .section-toggle span:first-child {
-    font-size: 6.3pt;
+    font-size: 7.1pt;
     letter-spacing: 0.14em;
   }
 
   .resume-section h3,
   .resume-section h4 {
-    margin: 1.2mm 0 0.5mm;
+    margin: 2.2mm 0 0.8mm;
     line-height: 1.1;
   }
 
   .resume-section h3 {
-    font-size: 10pt;
+    font-size: 12pt;
   }
 
   .resume-section h4 {
-    font-size: 8.2pt;
+    font-size: 9.2pt;
   }
 
   .resume-section p,
   .resume-section li {
-    font-size: 6.9pt;
-    line-height: 1.12;
+    font-size: 8.35pt;
+    line-height: 1.28;
   }
 
   .resume-section p {
-    margin: 0 0 0.6mm;
+    margin: 0 0 1.1mm;
   }
 
   .resume-section h3 + p,
   .resume-section h4 + p {
-    font-size: 6.6pt;
+    font-size: 8pt;
   }
 
   .resume-section ul {
-    margin: 0 0 0.8mm;
-    padding-left: 2.8mm;
+    margin: 0 0 1.7mm;
+    padding-left: 3.3mm;
   }
 
   .resume-section li + li {
-    margin-top: 0.35mm;
+    margin-top: 0.7mm;
   }
 
   .section-body[hidden] {
