@@ -161,8 +161,7 @@ a {
 }
 
 .sidebar {
-  position: sticky;
-  top: 20px;
+  position: static;
 }
 
 .sidebar-group + .sidebar-group {
