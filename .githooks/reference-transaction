@@ -1,0 +1,52 @@
+#!/bin/sh
+set -eu
+
+state="${1:-}"
+zero_sha="0000000000000000000000000000000000000000"
+development_ref="refs/heads/development"
+
+if [ "${state}" != "prepared" ]; then
+  exit 0
+fi
+
+would_expose_resume() {
+  commit="$1"
+
+  git diff-tree --no-commit-id --name-status -r "${commit}" -- |
+    awk '
+      {
+        status = $1
+        sub(/[0-9]+$/, "", status)
+
+        if ((status == "A" || status == "M" || status == "T") && $2 == "resume.md") {
+          found = 1
+        }
+
+        if ((status == "C" || status == "R") && $3 == "resume.md") {
+          found = 1
+        }
+      }
+      END {
+        exit(found ? 0 : 1)
+      }
+    '
+}
+
+while read old_sha new_sha ref_name; do
+  [ "${ref_name}" = "${development_ref}" ] || continue
+  [ "${new_sha}" = "${zero_sha}" ] && continue
+
+  if [ "${old_sha}" = "${zero_sha}" ]; then
+    commits=$(git rev-list "${new_sha}" --not --all)
+  else
+    commits=$(git rev-list "${old_sha}..${new_sha}")
+  fi
+
+  for commit in ${commits}; do
+    if would_expose_resume "${commit}"; then
+      echo "Blocked: update to development introduces resume.md via commit ${commit}."
+      echo "Keep resume.md on my-resume only and merge development into my-resume, not the reverse."
+      exit 1
+    fi
+  done
+done
