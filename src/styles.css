@@ -402,7 +402,7 @@ a {
 
 @page {
   size: A4;
-  margin: 8mm;
+  margin: 9mm;
 }
 
 @media print {
