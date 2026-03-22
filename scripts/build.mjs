@@ -241,32 +241,32 @@ ${stylesheet}
 
       <div class="layout">
         <aside class="sidebar panel">
-          <section class="sidebar-group">
+          <section class="sidebar-group sidebar-group-contact">
             <h2 class="sidebar-title">Contact</h2>
             <div class="contact-list">${contactItems}${renderLinks(data.links)}</div>
           </section>
 
-          <section class="sidebar-group">
+          <section class="sidebar-group sidebar-group-skills">
             <h2 class="sidebar-title">Skills</h2>
             ${renderChips(data.skills)}
           </section>
 
-          <section class="sidebar-group">
-            <h2 class="sidebar-title">Interests</h2>
-            ${renderChips(data.interests)}
-          </section>
-
-          <section class="sidebar-group">
+          <section class="sidebar-group sidebar-group-languages">
             <h2 class="sidebar-title">Languages</h2>
             ${renderArrayDetails(data.languages)}
           </section>
 
-          <section class="sidebar-group">
+          <section class="sidebar-group sidebar-group-awards">
             <h2 class="sidebar-title">Awards</h2>
             ${renderChips(data.awards)}
           </section>
 
-          <section class="sidebar-group">
+          <section class="sidebar-group sidebar-group-interests">
+            <h2 class="sidebar-title">Interests</h2>
+            ${renderChips(data.interests)}
+          </section>
+
+          <section class="sidebar-group sidebar-group-service">
             <h2 class="sidebar-title">Service</h2>
             ${renderChips(data.extracurricular)}
           </section>
@@ -338,6 +338,7 @@ async function generatePdf(htmlPath, pdfPath) {
     await page.pdf({
       path: pdfPath,
       format: "A4",
+      scale: 0.74,
       printBackground: true,
       margin: {
         top: "0",

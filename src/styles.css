@@ -47,6 +47,8 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: "Lato Light", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
   background:
     radial-gradient(circle at top left, rgba(15, 120, 167, 0.16), transparent 30%),
     radial-gradient(circle at top right, rgba(212, 231, 236, 0.9), transparent 28%),
@@ -60,7 +62,7 @@ a {
 .page {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 32px 20px 64px;
+  padding: 24px 18px 48px;
 }
 
 .panel {
@@ -74,8 +76,8 @@ a {
 .hero {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
-  padding: clamp(24px, 4vw, 44px);
+  gap: 18px;
+  padding: clamp(20px, 3vw, 34px);
 }
 
 .hero-copy {
@@ -95,22 +97,22 @@ a {
 .hero h1 {
   margin: 0;
   font-family: "TeX Gyre Heros", sans-serif;
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2.7rem, 6vw, 4.7rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 0.93;
 }
 
 .hero-title {
-  margin: 18px 0 10px;
-  font-size: 1.2rem;
+  margin: 14px 0 8px;
+  font-size: 1.08rem;
   color: var(--accent-strong);
 }
 
 .hero-summary {
   margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.65;
+  font-size: 0.98rem;
+  line-height: 1.5;
   color: var(--muted);
 }
 
@@ -119,22 +121,22 @@ a {
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: flex-end;
-  gap: 12px;
-  min-width: 230px;
+  gap: 10px;
+  min-width: 200px;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 180px;
-  padding: 14px 18px;
+  min-width: 160px;
+  padding: 12px 15px;
   border-radius: 999px;
   border: 1px solid rgba(15, 120, 167, 0.18);
   background: rgba(15, 120, 167, 0.08);
   color: var(--accent-strong);
   font-family: "TeX Gyre Heros", sans-serif;
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-decoration: none;
@@ -147,15 +149,15 @@ a {
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(260px, 310px) 1fr;
-  gap: 24px;
-  margin-top: 24px;
+  grid-template-columns: minmax(240px, 285px) 1fr;
+  gap: 18px;
+  margin-top: 18px;
   align-items: start;
 }
 
 .sidebar,
 .content {
-  padding: clamp(24px, 3vw, 34px);
+  padding: clamp(18px, 2.3vw, 28px);
 }
 
 .sidebar {
@@ -164,8 +166,8 @@ a {
 }
 
 .sidebar-group + .sidebar-group {
-  margin-top: 24px;
-  padding-top: 24px;
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
@@ -183,7 +185,7 @@ a {
 .detail-list,
 .jump-links {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .contact-list a,
@@ -194,7 +196,7 @@ a {
 .contact-item,
 .detail-item {
   color: var(--muted);
-  line-height: 1.45;
+  line-height: 1.35;
 }
 
 .contact-label,
@@ -211,21 +213,21 @@ a {
 .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
 .chip {
-  padding: 8px 12px;
+  padding: 6px 10px;
   border: 1px solid rgba(15, 120, 167, 0.18);
   border-radius: 999px;
   background: rgba(15, 120, 167, 0.08);
   color: var(--accent-strong);
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   line-height: 1.2;
 }
 
 .jump-links a {
-  padding: 8px 0;
+  padding: 6px 0;
   border-bottom: 1px solid rgba(22, 33, 37, 0.08);
   color: var(--muted);
 }
@@ -235,13 +237,13 @@ a {
 }
 
 .resume-section + .resume-section {
-  margin-top: 36px;
-  padding-top: 30px;
+  margin-top: 28px;
+  padding-top: 22px;
   border-top: 1px solid var(--line);
 }
 
 .section-heading {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
 }
 
 .section-toggle {
@@ -318,28 +320,28 @@ a {
 
 .resume-section h3,
 .resume-section h4 {
-  margin: 22px 0 6px;
+  margin: 16px 0 5px;
   font-family: "TeX Gyre Heros", sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .resume-section h3 {
-  font-size: 1.34rem;
+  font-size: 1.18rem;
 }
 
 .resume-section h4 {
-  font-size: 1.08rem;
+  font-size: 0.98rem;
 }
 
 .resume-section p,
 .resume-section li {
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .resume-section p {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
 }
 
 .resume-section h3 + p,
@@ -349,12 +351,12 @@ a {
 }
 
 .resume-section ul {
-  margin: 0 0 16px;
-  padding-left: 1.3rem;
+  margin: 0 0 12px;
+  padding-left: 1.1rem;
 }
 
 .resume-section li + li {
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
 .resume-section strong {
@@ -400,7 +402,7 @@ a {
 
 @page {
   size: A4;
-  margin: 14mm;
+  margin: 4mm;
 }
 
 @media print {
@@ -408,6 +410,9 @@ a {
     background: #ffffff;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    font-family: "TeX Gyre Heros", "Helvetica Neue", sans-serif;
+    font-size: 8pt;
+    line-height: 1.2;
   }
 
   .page {
@@ -424,7 +429,8 @@ a {
   }
 
   .hero {
-    padding: 0 0 8mm;
+    gap: 5mm;
+    padding: 0 0 2.6mm;
     border-bottom: 1px solid rgba(22, 33, 37, 0.14);
   }
 
@@ -435,10 +441,32 @@ a {
     display: none;
   }
 
+  nav.sidebar-group {
+    display: none;
+  }
+
+  .eyebrow {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 23pt;
+    line-height: 0.92;
+  }
+
+  .hero-title {
+    margin: 1mm 0 0.8mm;
+    font-size: 9.2pt;
+  }
+
+  .hero-summary {
+    font-size: 7.5pt;
+    line-height: 1.18;
+  }
+
   .layout {
-    grid-template-columns: 30% 1fr;
-    gap: 10mm;
-    margin-top: 8mm;
+    display: block;
+    margin-top: 4mm;
   }
 
   .sidebar,
@@ -446,13 +474,80 @@ a {
     padding: 0;
   }
 
+  .sidebar {
+    display: grid;
+    grid-template-columns: 1.25fr 1.4fr 1fr;
+    gap: 2mm 4mm;
+    margin-bottom: 2.6mm;
+    padding-bottom: 2.6mm;
+    border-bottom: 1px solid rgba(22, 33, 37, 0.14);
+    position: static;
+  }
+
+  .sidebar-group-interests,
+  .sidebar-group-awards,
+  .sidebar-group-service {
+    display: none;
+  }
+
   .sidebar-group {
     break-inside: avoid;
   }
 
+  .sidebar-group + .sidebar-group {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .sidebar-title {
+    margin: 0 0 0.8mm;
+    font-size: 6.1pt;
+    letter-spacing: 0.14em;
+  }
+
+  .contact-list,
+  .detail-list {
+    gap: 0.6mm;
+  }
+
+  .contact-item,
+  .detail-item {
+    font-size: 7.1pt;
+    line-height: 1.08;
+  }
+
+  .contact-label,
+  .detail-label {
+    margin-bottom: 0.2mm;
+    font-size: 5.8pt;
+  }
+
+  .chips {
+    gap: 0.7mm 1mm;
+  }
+
+  .chip {
+    padding: 0.55mm 1.5mm;
+    font-size: 6.7pt;
+    line-height: 1.08;
+  }
+
+  .content {
+    column-count: 1;
+  }
+
   .resume-section + .resume-section {
-    margin-top: 8mm;
-    padding-top: 7mm;
+    margin-top: 1.8mm;
+    padding-top: 1.5mm;
+  }
+
+  .resume-section {
+    break-inside: auto;
+  }
+
+  .section-heading {
+    margin: 0 0 0.8mm;
   }
 
   .resume-section h2,
@@ -466,6 +561,49 @@ a {
 
   .section-toggle {
     cursor: default;
+  }
+
+  .section-toggle span:first-child {
+    font-size: 6.3pt;
+    letter-spacing: 0.14em;
+  }
+
+  .resume-section h3,
+  .resume-section h4 {
+    margin: 1.2mm 0 0.5mm;
+    line-height: 1.1;
+  }
+
+  .resume-section h3 {
+    font-size: 10pt;
+  }
+
+  .resume-section h4 {
+    font-size: 8.2pt;
+  }
+
+  .resume-section p,
+  .resume-section li {
+    font-size: 6.9pt;
+    line-height: 1.12;
+  }
+
+  .resume-section p {
+    margin: 0 0 0.6mm;
+  }
+
+  .resume-section h3 + p,
+  .resume-section h4 + p {
+    font-size: 6.6pt;
+  }
+
+  .resume-section ul {
+    margin: 0 0 0.8mm;
+    padding-left: 2.8mm;
+  }
+
+  .resume-section li + li {
+    margin-top: 0.35mm;
   }
 
   .section-body[hidden] {
