@@ -29,7 +29,12 @@ The build writes:
 - `dist/resume.md`
 - `dist/resume.pdf`
 
-PDF generation uses Google Chrome in headless mode. If Chrome is installed somewhere else, set `CHROME_PATH` before running `npm run build`.
+PDF generation uses Puppeteer with a bundled browser download, so it also works in CI/build environments like Cloudflare Pages. If you want to force a specific local browser, set `CHROME_PATH` before running `npm run build`.
+
+For Cloudflare Pages:
+
+- Build command: `npm run build`
+- Build output directory: `dist`
 
 If `resume.md` does not exist yet, copy the starter file first:
 

@@ -11,7 +11,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
-    "puppeteer-core": "^24.6.1"
+    "puppeteer": "^24.6.1"
   },
   "devDependencies": {
     "browser-sync": "^3.0.4",

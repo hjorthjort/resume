@@ -4,7 +4,7 @@ import { pathToFileURL } from "node:url";
 
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
-import puppeteer from "puppeteer-core";
+import puppeteer from "puppeteer";
 
 const rootDir = process.cwd();
 const distDir = path.join(rootDir, "dist");
@@ -301,28 +301,9 @@ ${stylesheet}
 }
 
 async function generatePdf(htmlPath, pdfPath) {
-  const candidates = [
-    process.env.CHROME_PATH,
-    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
-    "/Applications/Chromium.app/Contents/MacOS/Chromium"
-  ].filter(Boolean);
-
-  let chromePath;
-  for (const candidate of candidates) {
-    try {
-      await fs.access(candidate);
-      chromePath = candidate;
-      break;
-    } catch {}
-  }
-
-  if (!chromePath) {
-    throw new Error("No Chrome executable found. Set CHROME_PATH to generate the PDF.");
-  }
-
   const browser = await puppeteer.launch({
-    executablePath: chromePath,
     headless: true,
+    ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}),
     args: [
       "--allow-file-access-from-files",
       "--no-first-run",
